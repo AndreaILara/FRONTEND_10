@@ -1,0 +1,66 @@
+#menu-login {
+  max-height: 0; /* Altura inicial cerrada */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 30px;
+  background-color: var(--color-light-2);
+  padding: 0; /* Sin padding cuando está cerrado */
+  gap: var(--spacing-xs); /* Espacio entre los botones */
+  border-radius: var(--border-radius-xs);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+#log-link.open #menu-login {
+  max-height: 100px; /* Altura visible */
+  padding: var(--spacing-s); /* Padding visible */
+}
+
+#menu-login a {
+  background-color: var(--color-accent-1);
+  color: var(--color-light-1);
+  text-align: center;
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius-xs);
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#menu-login a:hover {
+  background-color: var(--color-accent-2);
+  color: var(--color-light-2);
+  transform: scale(1.05);
+}
+
+header li {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+}
+
+header li > a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  border-bottom: 5px solid var(--color-accent-1);
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  pointer-events: none;
+}
+
+header li > a:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+header li.current-location > a::before {
+  border-bottom: 5px solid var(--color-accent-1);
+  left: 0;
+  width: 100%;
+}

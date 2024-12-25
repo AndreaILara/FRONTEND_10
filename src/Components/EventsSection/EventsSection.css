@@ -1,0 +1,64 @@
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las tarjetas en el espacio */
+  gap: var(--spacing-m); /* Espaciado entre tarjetas */
+  margin: var(--spacing-l) auto; /* Centra el contenedor */
+  padding: var(--spacing-s); /* Espaciado interno opcional */
+  overflow-x: auto; /* Desplazamiento horizontal para pantallas pequeñas */
+}
+
+.events {
+  display: block;
+  margin-top: var(--spacing-l);
+  padding: var(--spacing-s);
+  width: 100%;
+  max-width: 1200px; /* Limita el ancho máximo */
+  margin-left: auto; /* Centra en pantalla */
+  margin-right: auto; /* Centra en pantalla */
+}
+
+.events > div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Asegura que las tarjetas se envuelvan */
+}
+
+.events > div.events-container {
+  justify-content: center; /* Cambia flex-start por center para centrar las tarjetas */
+  gap: var(--spacing-m); /* Espaciado entre tarjetas */
+  padding: var(--spacing-m);
+  overflow-x: auto; /* Scroll horizontal opcional */
+}
+
+.events .loader {
+  background: transparent;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px; /* Altura mínima para alineación */
+}
+
+/* Estilos para Scrollbar */
+/* Ancho del scrollbar */
+.events > div.events-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Fondo del track del scrollbar */
+.events > div.events-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Color del handle del scrollbar */
+.events > div.events-container::-webkit-scrollbar-thumb {
+  background: var(--color-dark-1);
+  border-radius: 4px;
+}
+
+/* Hover del handle */
+.events > div.events-container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dark-2);
+}
