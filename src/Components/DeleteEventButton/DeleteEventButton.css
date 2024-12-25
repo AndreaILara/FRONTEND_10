@@ -1,35 +1,73 @@
-/* Contenedor de los botones */
-button-container {
-  display: flex;
-  gap: var(--spacing-s); /* Espaciado entre los botones */
-  justify-content: center; /* Centra los botones horizontalmente */
-  align-items: center; /* Centra los botones verticalmente */
-}
-
-/* Estilo individual de los botones */
 button.del-btn {
   background-color: var(--color-light-1);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: none; /* Eliminar el borde para un diseño limpio */
+  border-radius: 50%; /* Asegura que el botón sea circular */
+  width: 100%; /* Ajusta el tamaño del botón */
+  height: 100%; /* Ajusta el tamaño del botón */
+  display: flex; /* Centrar contenido dentro del botón */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
   transition: all 0.3s ease;
 }
 
 button.del-btn img {
-  width: 60%;
-  height: auto;
-  pointer-events: none;
+  filter: invert(0);
+  width: 160%; /* Ajusta el tamaño de la imagen dentro del botón */
+  height: 60%; /* Asegura que la imagen sea proporcional */
+  pointer-events: none; /* Evita que la imagen bloquee clics */
 }
 
 button.del-btn:hover {
   background-color: red;
-  transform: scale(1.1);
+  transform: scale(1.1); /* Efecto de agrandar al pasar el cursor */
 }
 
 button.del-btn:hover img {
-  filter: invert(1);
+  filter: invert(1); /* Cambia el color de la imagen al pasar el cursor */
+  transition: all 0.3s ease;
+}
+
+#del-event div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  background-color: var(--color-light-2);
+  padding: var(--spacing-m);
+  border-radius: var(--border-radius-l);
+}
+
+#del-event button.del-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50px; /* Ajustar bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de fuente legible */
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+#del-event button.del-btn:hover {
+  background-color: darkred; /* Efecto al pasar el cursor */
+  transform: scale(1.05); /* Ligeramente más grande al hover */
+}
+
+#del-event button.del-btn img {
+  display: none; /* Si no necesitas un ícono, ocúltalo */
+}
+
+/* Contenedor del mensaje */
+#del-event div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar texto y botón */
+  gap: 15px; /* Espaciado entre elementos */
+  background-color: var(--color-light-2);
+  padding: 20px;
+  border-radius: var(--border-radius-l);
+  max-width: 300px; /* Limita el ancho del banner */
+  text-align: center; /* Centrar texto */
 }
