@@ -12,7 +12,7 @@ export const EventsSection = ({ title, eventTiming }) => {
   eventSection.append(eventsTitle);
 
   eventDiv.innerHTML = ` 
-  <dotlottie-player class="loader" src="/public/main_scene.json" speed="1" loop autoplay></dotlottie-player>`;
+  <dotlottie-player class="loader" src="/main_scene.json" speed="1" loop autoplay></dotlottie-player>`;
   eventSection.append(eventDiv);
 
   return eventSection;

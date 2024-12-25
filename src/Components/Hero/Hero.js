@@ -4,7 +4,7 @@ import './Hero.css';
 
 export const heroData = {
   text: 'Descubre un mundo de juegos de mesa, estrategia y diversión. Únete a nuestros eventos, comparte risas y vive momentos únicos con amigos y familia. ¡La aventura comienza aquí!',
-  image: './public/friends.jpg'
+  image: '/friends.jpg'
 };
 
 const heroSection = ({ text, image }) => {

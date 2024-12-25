@@ -6,7 +6,7 @@ export const EventCard = eventObject => {
   const eventContainer = document.createElement('article');
   eventContainer.classList.add('flex-container');
 
-  const gameImage = eventObject.games?.[0]?.images?.[0] || './public/ruta.jpg';
+  const gameImage = eventObject.games?.[0]?.images?.[0] || '/ruta.jpg';
   console.log('Image URL:', gameImage);
 
   eventContainer.innerHTML = `

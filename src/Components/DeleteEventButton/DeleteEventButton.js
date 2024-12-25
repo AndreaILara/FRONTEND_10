@@ -10,7 +10,7 @@ export const DeleteEventButton = (buttonContainer, eventObject) => {
     const eventId = eventObject._id;
     const deleteEventButton = document.createElement('button');
     const deleteImg = document.createElement('img');
-    deleteImg.src = './public/borrar.png';
+    deleteImg.src = '/borrar.png';
     deleteEventButton.classList.add('del-btn', 'round');
     deleteEventButton.append(deleteImg);
 
