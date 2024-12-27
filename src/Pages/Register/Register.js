@@ -43,5 +43,5 @@ export const Register = () => {
   registerLayout();
   document
     .querySelector('#register form')
-    .addEventListener('submit', registerSubmit);
+    .addEventListener('Submit', registerSubmit);
 };
