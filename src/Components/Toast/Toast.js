@@ -9,7 +9,9 @@ export const showToast = (text, background) => {
     position: 'right',
     stopOnFocus: true,
     style: {
-      background
+      background,
+      borderRadious: '10px',
+      padding: '10px 20px',
     }
   }).showToast();
 };

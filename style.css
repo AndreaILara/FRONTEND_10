@@ -119,3 +119,8 @@ button.round {
   flex-wrap: wrap;
   gap: var(--spacing-l);
 }
+.toastify {
+  border-radius: 8px !important; /* Fuerza el borde redondeado */
+  padding: 10px 20px !important; /* Asegura el espaciado interno */
+  color: #fff !important;       /* Asegura el color del texto */
+}
