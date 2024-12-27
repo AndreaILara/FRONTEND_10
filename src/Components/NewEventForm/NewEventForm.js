@@ -128,5 +128,5 @@ export const NewEventForm = () => {
   // Manejo del envío del formulario
   document
     .querySelector('#create-event form')
-    .addEventListener('submit', postEvent);
+    .addEventListener('Crear', postEvent);
 };
