@@ -1,14 +1,24 @@
-button.negative {
+button.assistance-btn {
   background-color: var(--color-mid);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-s);
+  padding: 10px 20px; 
+  font-size: 0.9rem; 
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-button.negative:hover {
-  background-color: var(--color-light-2);
-  border-color: var(--color-mid);
+button.assistance-btn.negative {
+  background-color: #ec7070;
 }
-button.negative:active {
-  border-color: var(--color-mid);
-  background-color: var(--color-mid);
+
+button.assistance-btn:hover {
+  background-color: var(--color-light-2); 
+}
+
+button.assistance-btn:active {
+  background-color: var(--color-dark-2); 
 }
 
 button.loading::before, button.loading::after {

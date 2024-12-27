@@ -5,7 +5,6 @@ import { apiRequest } from '../../Utils/apiRequest';
 
 export const DeleteEventButton = (buttonContainer, eventObject) => {
   const user = JSON.parse(localStorage.getItem('user'));
-  //Si el usuario tiene permisoso de administrador, se muestra un botón que permite eliminar eventos
   if (user.role === 'admin') {
     const eventId = eventObject._id;
     const deleteEventButton = document.createElement('button');
@@ -21,10 +20,15 @@ export const DeleteEventButton = (buttonContainer, eventObject) => {
       confirmationBtn.addEventListener('click', () => {
         confirmationBtn.classList.add('loading');
         deleteEvent(event, eventId);
-        //tomo el evento del listener original para poder eliminar la tarjeta facilmente
       });
     });
-    buttonContainer.append(deleteEventButton);
+
+
+    if (buttonContainer) {
+      buttonContainer.append(deleteEventButton);
+    } else {
+      console.error('Error: No se encontró el contenedor para los botones.');
+    }
   }
 };
 
@@ -37,13 +41,11 @@ const deleteEvent = async (e, eventId) => {
   });
 
   const response = await res.json();
-  //Si sale todo bien, se elimina la tarjeta y se muestra un mensaje
   if (res.status === 200) {
     showToast(response.message, 'red');
-    e.target.parentNode.remove();
+    e.target.closest('article').remove();
     document.querySelector('.modal').remove();
   } else {
-    //Si no, se informa al usuario del error
     showToast(response, 'red');
   }
 };
@@ -54,8 +56,8 @@ const warningBanner = () => {
   const warningBanner = document.createElement('div');
   warningBanner.innerHTML = `
   <p>¿Estás seguro de que quieres eliminar el evento?</p>
-  <button class="del-btn">Sí. Eliminar el evento</button>
-    `;
+  <button class="del-btn" full-red>Sí. Eliminar el evento</button>
+  `;
   deleteWarningContainer.append(warningBanner);
   return deleteWarningContainer;
 };

@@ -2,7 +2,7 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  align-items: center; /* Centra verticalmente los contenidos */
+  align-items: center; 
   top: 0;
   left: 0;
   width: 100%;
@@ -31,16 +31,16 @@
 }
 
 .modal span {
-  position: fixed; /* Fija el botón dentro de la ventana */
-  top: 20px; /* Ajusta la posición desde arriba */
-  right: 20px; /* Ajusta la posición desde la derecha */
+  position: fixed; 
+  top: 20px; 
+  right: 20px; 
   z-index: 110;
-  width: 65px; /* Aumenta el tamaño del botón */
-  height: 50px; /* Aumenta el tamaño del botón */
-  border-radius: 50%; /* Hace que el botón sea circular */
+  width: 65px; 
+  height: 50px; 
+  border-radius: 50%; 
   text-align: center;
-  line-height: 50px; /* Alinea verticalmente el texto */
-  font-size: 18px; /* Tamaño del texto del botón */
+  line-height: 50px; 
+  font-size: 18px;
   font-weight: bold;
   background-color: var(--color-accent-1);
   color: var(--color-dark-1);
@@ -52,5 +52,5 @@
 .modal span:hover {
   background-color: var(--color-dark-1);
   color: var(--color-accent-1);
-  transform: scale(1.1); /* Hace que el botón crezca al pasar el cursor */
+  transform: scale(1.1); 
 }

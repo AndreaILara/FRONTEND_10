@@ -20,14 +20,17 @@ export const EventCard = eventObject => {
       <p>${eventObject.date?.split('T')[0] || 'Fecha a confirmar'}</p>
       <p>${eventObject?.location || 'Ubicación a confirmar'}</p>
     </div>
+    <div class="button-container"></div>
   </div>
   `;
 
+  const buttonContainer = eventContainer.querySelector('.button-container');
+
   if (localStorage.getItem('user')) {
-    DeleteEventButton(eventContainer, eventObject);
+    DeleteEventButton(buttonContainer, eventObject);
   }
   if (eventObject.isUpcoming) {
-    EventAssistanceButton(eventContainer.querySelector('.event-info'), eventObject);
+    EventAssistanceButton(buttonContainer, eventObject);
   }
   return eventContainer;
 };

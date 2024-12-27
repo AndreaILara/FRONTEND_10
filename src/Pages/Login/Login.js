@@ -7,13 +7,13 @@ import { Home } from '../Home/Home';
 import './Login.css';
 
 const loginLayout = () => {
-  //Selecciono y limpio el main
+
   const main = document.querySelector('main');
   main.innerHTML = '';
-  //Creo el contenedor para el formulario
+
   const loginSection = document.createElement('section');
   loginSection.id = 'login';
-  //Creo el formulario y sus componentes
+
   UserForm(loginSection, 'Login', loginForm);
   main.append(loginSection);
 };
@@ -39,11 +39,11 @@ export const loginRequest = async (username, password) => {
     });
 
     if (res.status === 200) {
-      const response = await res.json(); // Asegúrate de que esta línea no arroja errores
+      const response = await res.json();
       localStorage.setItem('token', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
-      Header(); // Actualiza el header con los datos del usuario
-      Home();   // Redirige al home
+      Header();
+      Home();
     } else {
       showToast('Nombre de usuario o contraseña incorrecto', 'red');
     }

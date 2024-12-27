@@ -3,8 +3,7 @@ import { showToast } from '../Toast/Toast';
 import { apiRequest } from '../../Utils/apiRequest';
 
 export const EventAssistanceButton = (buttonContainer, eventObject) => {
-  // Asegúrate de que el botón previo sea eliminado para evitar duplicados
-  const existingButton = buttonContainer.querySelector('button');
+  const existingButton = buttonContainer.querySelector('button.negative, button.assistance-btn');
   if (existingButton) existingButton.remove();
 
   if (localStorage.getItem('token')) {
@@ -12,9 +11,8 @@ export const EventAssistanceButton = (buttonContainer, eventObject) => {
     const eventId = eventObject._id;
 
     const joinEventButton = document.createElement('button');
-    joinEventButton.classList.add('assistance-btn'); // Añade una clase para facilitar estilos
+    joinEventButton.classList.add('assistance-btn');
 
-    // Verifica si el usuario ya está asistiendo
     const assistants = Array.isArray(eventObject.attendees) ? eventObject.attendees : [];
     const userIsGoing = assistants.find(assistant => assistant._id === user._id);
 
@@ -31,19 +29,23 @@ export const EventAssistanceButton = (buttonContainer, eventObject) => {
       });
     }
 
-    buttonContainer.append(joinEventButton);
+    if (buttonContainer) {
+      buttonContainer.append(joinEventButton);
+    } else {
+      console.error('Error: No se encontró el contenedor para los botones.');
+    }
   }
 };
 
 const handleEventAssistance = async ({ e, eventId, userId, userIsGoing }) => {
-  e.target.classList.add('loading'); // Indica que se está procesando la acción
+  e.target.classList.add('loading');
 
   const requestObject = {
     endpoint: `events/${eventId}`,
     method: 'PUT',
     body: userIsGoing
-      ? { attendees: [] } // Remover asistencia
-      : { attendees: [userId] }, // Agregar asistencia
+      ? { attendees: [] }
+      : { attendees: [userId] },
   };
 
   try {
@@ -52,11 +54,7 @@ const handleEventAssistance = async ({ e, eventId, userId, userIsGoing }) => {
 
     if (res.status === 200) {
       const { updatedEvent } = response;
-
-      // Actualiza el botón pero no elimina el resto de la tarjeta
       EventAssistanceButton(e.target.parentNode, updatedEvent);
-
-      // Remueve la clase de carga
       e.target.classList.remove('loading');
     } else {
       showToast(response.message || 'Error al procesar la solicitud', 'red');

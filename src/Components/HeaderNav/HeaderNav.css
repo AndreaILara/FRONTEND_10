@@ -1,21 +1,21 @@
 #menu-login {
-  max-height: 0; /* Altura inicial cerrada */
+  max-height: 0; 
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 30px;
   background-color: var(--color-light-2);
-  padding: 0; /* Sin padding cuando está cerrado */
-  gap: var(--spacing-xs); /* Espacio entre los botones */
+  padding: 0; 
+  gap: var(--spacing-xs); 
   border-radius: var(--border-radius-xs);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
 #log-link.open #menu-login {
-  max-height: 100px; /* Altura visible */
-  padding: var(--spacing-s); /* Padding visible */
+  max-height: 100px; 
+  padding: var(--spacing-s); 
 }
 
 #menu-login a {

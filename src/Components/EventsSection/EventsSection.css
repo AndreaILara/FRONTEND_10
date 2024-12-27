@@ -1,11 +1,11 @@
 .events-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centra las tarjetas en el espacio */
-  gap: var(--spacing-m); /* Espaciado entre tarjetas */
-  margin: var(--spacing-l) auto; /* Centra el contenedor */
-  padding: var(--spacing-s); /* Espaciado interno opcional */
-  overflow-x: auto; /* Desplazamiento horizontal para pantallas pequeñas */
+  justify-content: center; 
+  gap: var(--spacing-m); 
+  margin: var(--spacing-l) auto; 
+  padding: var(--spacing-s); 
+  overflow-x: auto; 
 }
 
 .events {
@@ -13,22 +13,22 @@
   margin-top: var(--spacing-l);
   padding: var(--spacing-s);
   width: 100%;
-  max-width: 1200px; /* Limita el ancho máximo */
-  margin-left: auto; /* Centra en pantalla */
-  margin-right: auto; /* Centra en pantalla */
+  max-width: 1200px; 
+  margin-left: auto; 
+  margin-right: auto; 
 }
 
 .events > div {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Asegura que las tarjetas se envuelvan */
+  flex-wrap: wrap; 
 }
 
 .events > div.events-container {
-  justify-content: center; /* Cambia flex-start por center para centrar las tarjetas */
-  gap: var(--spacing-m); /* Espaciado entre tarjetas */
+  justify-content: center; 
+  gap: var(--spacing-m); 
   padding: var(--spacing-m);
-  overflow-x: auto; /* Scroll horizontal opcional */
+  overflow-x: auto; 
 }
 
 .events .loader {
@@ -38,27 +38,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 200px; /* Altura mínima para alineación */
+  min-height: 200px; 
 }
 
-/* Estilos para Scrollbar */
-/* Ancho del scrollbar */
 .events > div.events-container::-webkit-scrollbar {
   height: 8px;
 }
 
-/* Fondo del track del scrollbar */
+
 .events > div.events-container::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Color del handle del scrollbar */
+
 .events > div.events-container::-webkit-scrollbar-thumb {
   background: var(--color-dark-1);
   border-radius: 4px;
 }
 
-/* Hover del handle */
+
 .events > div.events-container::-webkit-scrollbar-thumb:hover {
   background: var(--color-dark-2);
 }

@@ -1,6 +1,6 @@
 .events-container > article {
-  width: 220px;
-  min-height: 350px;
+  width: 270px;
+  min-height: auto;
   border-radius: var(--border-radius-l);
   overflow: hidden;
   gap: var(--spacing-s);
@@ -22,7 +22,7 @@
   background-color: var(--color-dark-2);
 }
 .events-container > article > div > img {
-  width: 250px;
+  width: 270px;
   height: 200px;
   object-fit: cover;
   object-position: center top;
@@ -34,6 +34,13 @@
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+}
+.events-container > article > div.event-info > .button-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: var(--spacing-s); 
+  gap: 10px; 
 }
 
 .events-container > article > div.event-info > div {
