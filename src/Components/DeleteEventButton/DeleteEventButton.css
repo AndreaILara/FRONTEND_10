@@ -11,7 +11,7 @@ button.del-btn {
 }
 
 button.del-btn img {
-  width: 1400%; 
+  width: 126%; 
   height: 75%; 
   object-fit: contain; /* Mantiene las proporciones del ícono */
   pointer-events: none; 
