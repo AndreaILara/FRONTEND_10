@@ -21,21 +21,36 @@ const registerLayout = () => {
 
 const registerSubmit = async e => {
   e.preventDefault();
-  const username = document.querySelector('#username').value;
-  const password = document.querySelector('#password').value;
-  const email = document.querySelector('#email').value;
-  const response = await apiRequest({
-    endpoint: 'users/register',
-    method: 'POST',
-    body: { username, email, password },
-  });
 
-  const data = await response.json();
+  const username = document.querySelector('#username').value.trim();
+  const password = document.querySelector('#password').value.trim();
+  const email = document.querySelector('#email').value.trim();
 
-  if (response.status !== 201) {
-    showToast(data, 'red');
-  } else {
-    loginRequest(username, password);
+
+  if (!username || !password || !email) {
+    showToast('Todos los campos son obligatorios', 'red');
+    return;
+  }
+
+  try {
+    const response = await apiRequest({
+      endpoint: 'users/register',
+      method: 'POST',
+      body: { username, email, password },
+    });
+
+    const data = await response.json();
+
+    if (response.status !== 201) {
+      showToast(data.error || 'Error al registrar usuario', 'red');
+    } else {
+      showToast('Registro exitoso. Iniciando sesión...', 'linear-gradient(to right, #00b09b, #96c93d)');
+
+      loginRequest(username, password);
+    }
+  } catch (error) {
+    console.error(error);
+    showToast('Error en la conexión con el servidor', 'red');
   }
 };
 
@@ -43,5 +58,5 @@ export const Register = () => {
   registerLayout();
   document
     .querySelector('#register form')
-    .addEventListener('Submit', registerSubmit);
+    .addEventListener('submit', registerSubmit);
 };
