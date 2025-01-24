@@ -42,7 +42,7 @@ const registerSubmit = async e => {
     const data = await response.json();
 
     if (response.status !== 201) {
-      showToast(data.message || 'Error al registrar usuario', 'red'); // Cambiar 'data.error' por 'data.message'
+      showToast(data.message || 'Error al registrar usuario', 'red');
     } else {
       showToast('Registro exitoso. Iniciando sesión...', 'linear-gradient(to right, #00b09b, #96c93d)');
       loginRequest(username, password);

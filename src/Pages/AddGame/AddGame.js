@@ -37,7 +37,7 @@ export const AddGame = () => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(form); // Automatiza la captura de los campos
+    const formData = new FormData(form);
 
     try {
       const response = await fetch('http://localhost:3000/api/v2/boardgames', {
@@ -52,7 +52,7 @@ export const AddGame = () => {
 
       if (response.ok) {
         showToast('Juego añadido correctamente.', 'green');
-        form.reset(); // Limpia el formulario tras el envío
+        form.reset();
       } else {
         showToast(result.error || 'Error al añadir el juego.', 'red');
       }

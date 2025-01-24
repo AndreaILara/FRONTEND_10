@@ -17,7 +17,7 @@ export const DeleteEventButton = (buttonContainer, eventObject) => {
     return;
   }
 
-  // Permitir eliminación si el usuario es admin o el organizador
+
   if (user.role === 'admin' || user._id === eventObject.organizer._id) {
     const deleteEventButton = document.createElement('button');
     const deleteImg = document.createElement('img');
@@ -40,7 +40,7 @@ export const DeleteEventButton = (buttonContainer, eventObject) => {
   }
 };
 
-// Función para realizar la eliminación
+
 const deleteEvent = async (eventId) => {
   try {
     const res = await apiRequest({
@@ -54,13 +54,13 @@ const deleteEvent = async (eventId) => {
       document.querySelector(`article[data-id="${eventId}"]`)?.remove();
       document.querySelector('.modal')?.remove();
 
-      // Mostrar pantalla de carga
+
       document.body.innerHTML += `
         <div id="loading-screen">
           <p>Cargando...</p>
         </div>
       `;
-      // Aplicar estilos al loading screen
+
       const loadingScreenStyle = document.createElement('style');
       loadingScreenStyle.textContent = `
         #loading-screen {
@@ -80,10 +80,10 @@ const deleteEvent = async (eventId) => {
       `;
       document.head.appendChild(loadingScreenStyle);
 
-      // Recargar después de un tiempo
+
       setTimeout(() => {
         window.location.reload();
-      }, 1500); // Espera 1.5 segundos para mostrar el mensaje
+      }, 1500);
     } else {
       const errorResponse = await res.json();
       showToast(errorResponse.message || 'Error al eliminar el evento.', 'red');
@@ -94,7 +94,7 @@ const deleteEvent = async (eventId) => {
   }
 };
 
-// Genera el banner de confirmación
+
 const warningBanner = (eventId) => {
   const deleteWarningContainer = Modal();
   deleteWarningContainer.id = 'del-event';

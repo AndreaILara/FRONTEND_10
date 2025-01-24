@@ -49,7 +49,7 @@ const postEvent = async e => {
     date: document.querySelector('#date').value.trim(),
     location: document.querySelector('#location').value.trim(),
     games: [gameOption.getAttribute('data-id')],
-    organizer: user._id, // Asegúrate de incluir el organizador
+    organizer: user._id,
   };
 
   try {
@@ -84,7 +84,7 @@ export const NewEventForm = () => {
 
   UserForm(eventFormContainer, 'Crea tu propio evento', createEventForm);
 
-  // Validación de fecha en tiempo real
+
   eventFormContainer
     .querySelector('[type="date"]')
     .addEventListener('change', e => {
@@ -95,7 +95,7 @@ export const NewEventForm = () => {
       }
     });
 
-  // Campo para seleccionar juegos
+
   const gameInputContainer = document.createElement('div');
   gameInputContainer.classList.add('input-container');
   gameInputContainer.innerHTML = `
@@ -116,7 +116,7 @@ export const NewEventForm = () => {
       for (const game of listOfGames) {
         const option = document.createElement('option');
         option.value = game.title; // Nombre visible
-        option.setAttribute('data-id', game._id); // ID para backend
+        option.setAttribute('data-id', game._id);
         datalistOfGames.append(option);
       }
     })
@@ -125,7 +125,7 @@ export const NewEventForm = () => {
       console.error(error);
     });
 
-  // Manejo del envío del formulario
+
   document
     .querySelector('#create-event form')
     .addEventListener('submit', postEvent);

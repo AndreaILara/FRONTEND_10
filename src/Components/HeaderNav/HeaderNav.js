@@ -34,16 +34,16 @@ export const Header = () => {
   const header = document.querySelector('header nav');
   header.innerHTML = navLayout();
 
-  // Navegación al Home
+
   const homeLink = document.querySelector('#logo');
   homeLink.addEventListener('click', Home);
 
-  // Navegación a Eventos
+
   const eventsLink = document.querySelector('#events-link');
   eventsLink.addEventListener('click', Events);
 
   if (localStorage.getItem('token')) {
-    // Acceso a Mi Perfil
+
     const profileLink = document.querySelector('#profile-link');
     profileLink.addEventListener('click', ProfilePage);
 
@@ -52,19 +52,19 @@ export const Header = () => {
     profileIconElement.addEventListener('click', () => {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      Header(); // Actualizar el header después de logout
+      Header();
       Home(); // Redirigir al home
     });
 
-    // Mostrar enlace "Añadir Juegos" solo si es admin
+
     const user = JSON.parse(localStorage.getItem('user'));
     if (user && user.role === 'admin') {
       const addGameLink = document.querySelector('#add-game-link');
-      addGameLink.style.display = 'list-item'; // Mostrar el enlace para admins
+      addGameLink.style.display = 'list-item';
       addGameLink.addEventListener('click', AddGame);
     }
   } else {
-    // Menú de Login y Registro si no hay token
+
     const logLink = document.querySelector('#log-link');
     logLink.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -90,7 +90,7 @@ export const Header = () => {
       logLink.classList.toggle('open');
     });
 
-    // Cierra el menú si haces clic fuera
+
     document.addEventListener('click', () => {
       const loginMenu = document.querySelector('#menu-login');
       if (loginMenu) loginMenu.remove();
@@ -100,7 +100,7 @@ export const Header = () => {
   }
 };
 
-// Función para limpiar el estado del header
+
 export const cleanHeader = () => {
   const headerLinks = document.querySelectorAll('header > nav > ul > li');
   for (const link of headerLinks) {

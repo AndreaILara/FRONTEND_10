@@ -23,7 +23,7 @@ export const EventAssistanceButton = (buttonContainer, eventObject) => {
     const joinEventButton = document.createElement('button');
     joinEventButton.classList.add('assistance-btn');
 
-    const assistants = eventObject.attendees.map(assistant => assistant?._id || assistant); // Aseguramos IDs planos
+    const assistants = eventObject.attendees.map(assistant => assistant?._id || assistant);
     const userIsGoing = assistants.includes(user._id);
 
     joinEventButton.textContent = userIsGoing ? 'Darme de baja' : 'Unirme';
@@ -48,7 +48,7 @@ const handleEventAssistance = async ({ e, eventId, userId, userIsGoing }) => {
     endpoint: `events/${eventId}`,
     method: 'PUT',
     body: {
-      action: userIsGoing ? 'remove' : 'add', // Acciones: 'add' para unirse o 'remove' para darse de baja
+      action: userIsGoing ? 'remove' : 'add',
       userId,
     },
   };
@@ -60,7 +60,7 @@ const handleEventAssistance = async ({ e, eventId, userId, userIsGoing }) => {
     if (res.ok) {
       const { updatedEvent } = response;
 
-      // Actualiza el botón con el nuevo estado del evento
+
       EventAssistanceButton(e.target.parentNode, updatedEvent);
 
       e.target.classList.remove('loading');

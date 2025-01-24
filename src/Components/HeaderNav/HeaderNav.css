@@ -2,14 +2,13 @@
 ul.flex-container {
   display: flex;
   align-items: center;
-  justify-content: space-around; /* Cambiado a 'space-around' para un mejor espaciado */
+  justify-content: space-around; 
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: var(--spacing-l); /* Añade un gap entre los elementos */
+  gap: var(--spacing-l); 
 }
 
-/* Enlace de navegación */
 header li {
   cursor: pointer;
   font-size: 20px;
@@ -17,13 +16,12 @@ header li {
   position: relative;
 }
 
-/* Animación para el subrayado al pasar el mouse */
 header li > a::before {
   content: '';
   position: absolute;
   width: 0;
-  height: 3px; /* Ajusta la altura de la barra inferior */
-  bottom: 0; /* Coloca la barra al fondo del enlace */
+  height: 3px; 
+  bottom: 0;
   left: 50%;
   border-bottom: 3px solid var(--color-accent-1);
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -41,12 +39,12 @@ header li.current-location > a::before {
   width: 100%;
 }
 
-/* Ajuste específico para "Añadir Juegos" y "Mi Perfil" */
+
 header li {
-  margin: 0 10px; /* Añade un margen entre los elementos */
+  margin: 0 10px; 
 }
 
-/* Estilo del contenedor del menú (Login/Registrarse) */
+
 #menu-login {
   max-height: 0;
   overflow: hidden;
@@ -62,20 +60,20 @@ header li {
   transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
-/* Cuando está abierto, mostrar el contenido */
+
 #log-link.open #menu-login {
   max-height: 100px;
   padding: var(--spacing-s);
 }
 
-/* Estilo de log-link */
+
 #log-link {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Enlaces dentro del menú (Login/Registrarse) */
+
 #menu-login a {
   background-color: var(--color-accent-1);
   color: var(--color-light-1);

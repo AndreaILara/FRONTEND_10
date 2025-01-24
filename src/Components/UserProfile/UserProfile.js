@@ -3,9 +3,9 @@ import { apiRequest } from '../../Utils/apiRequest';
 import { showToast } from '../Toast/Toast';
 
 export const UserProfile = () => {
-  const user = JSON.parse(localStorage.getItem('user')); // Obtener datos del usuario autenticado
+  const user = JSON.parse(localStorage.getItem('user'));
 
-  // Crear contenedor del perfil
+
   const profileSection = document.createElement('section');
   profileSection.classList.add('profile-section');
 
@@ -13,7 +13,7 @@ export const UserProfile = () => {
   title.textContent = 'Mi Perfil';
   profileSection.append(title);
 
-  // Mostrar datos del usuario
+
   const userInfo = document.createElement('div');
   userInfo.classList.add('user-info');
   userInfo.innerHTML = `
@@ -52,6 +52,6 @@ export const UserProfile = () => {
   });
   profileSection.append(deleteAccountButton);
 
-  // Devolver el contenedor completo
+
   return profileSection;
 };
