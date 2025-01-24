@@ -1,6 +1,6 @@
 import { createEventForm } from '../../Data/Forms';
 import { UserForm } from '../UserForm/UserForm';
-import './NewEventForm.css';
+import '../../styles/FormStyles.css';
 import { showToast } from '../Toast/Toast';
 import { listOfEvents } from '../EventsSection/EventsSection';
 import { Modal } from '../Modal/Modal';
@@ -48,8 +48,8 @@ const postEvent = async e => {
     name: document.querySelector('#name').value.trim(),
     date: document.querySelector('#date').value.trim(),
     location: document.querySelector('#location').value.trim(),
-    games: [gameOption.getAttribute('data-id')], // Usar el ID del juego
-    organizer: user._id, // Agregar el organizador
+    games: [gameOption.getAttribute('data-id')],
+    organizer: user._id, // Asegúrate de incluir el organizador
   };
 
   try {

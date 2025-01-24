@@ -107,10 +107,12 @@ button.round {
 }
 
 #logo {
-  height: 60px;
-  width: 60px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  width: 50px; /* Tamaño esperado */
+  height: auto; /* Mantener proporción */
+  transition: none; /* Evitar transiciones que causen parpadeos */
+  overflow: hidden; /* Prevenir contenido adicional fuera del contenedor */
 }
+
 
 .flex-container {
   display: flex;

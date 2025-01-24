@@ -3,5 +3,9 @@ import { Home } from './src/Pages/Home/Home';
 import './style.css';
 import 'toastify-js/src/toastify.css';
 
+window.addEventListener('load', () => {
+  document.documentElement.classList.remove('loading');
+});
+
 Header();
 Home();

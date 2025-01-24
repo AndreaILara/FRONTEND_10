@@ -1,0 +1,101 @@
+/* Contenedor del formulario */
+form.user-form,
+form.event-form {
+  background-color: var(--color-dark-1);
+  border-radius: var(--border-radius-l);
+  padding: var(--spacing-m);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  height: auto;
+}
+
+form.user-form h2,
+form.event-form h2 {
+  color: var(--color-light-1);
+  text-align: center;
+  margin-bottom: var(--spacing-m);
+  font-size: 1.5rem;
+}
+
+/* Contenedor del input */
+.input-container {
+  position: relative;
+  margin-bottom: var(--spacing-m);
+}
+
+/* Input */
+.input-container input,
+.input-container .input {
+  width: 100%;
+  padding: 15px 15px;
+  font-size: 1rem;
+  border: 1.5px solid var(--color-light-2);
+  border-radius: var(--border-radius-s);
+  background-color: var(--color-dark-1);
+  color: var(--color-light-1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+/* Input específico para fecha */
+.input-container input[type="date"] {
+  appearance: none;
+}
+
+.input-container input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: var(--color-accent-1);
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* Label del input */
+.input-container label,
+.input-container .iLabel {
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background-color: var(--color-dark-1);
+  padding: 0 5px;
+  font-size: 0.9rem;
+  color: var(--color-mid);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+/* Cambios en el input cuando está enfocado */
+.input-container input:focus,
+.input-container .input:focus {
+  border-color: var(--color-accent-1);
+  box-shadow: 0 0 5px var(--color-accent-1);
+}
+
+.input-container input:focus ~ label,
+.input-container .input:focus ~ .iLabel {
+  color: var(--color-accent-1);
+}
+
+/* Botón del formulario */
+button.submit {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-m);
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--color-accent-1);
+  border: none;
+  border-radius: var(--border-radius-s);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: var(--spacing-m);
+}
+
+button.submit:hover {
+  background-color: var(--color-accent-2);
+}
+
+button.submit:active {
+  background-color: var(--color-hover);
+}

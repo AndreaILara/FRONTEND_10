@@ -8,7 +8,7 @@ export const apiRequest = async ({ endpoint, id = '', method, body }) => {
       Authorization: token ? `Bearer ${token}` : null,
     },
     method: method.toUpperCase(),
-    body: body ? JSON.stringify(body) : null, // Solo agrega body si existe
+    body: body ? JSON.stringify(body) : null,
   };
 
   try {

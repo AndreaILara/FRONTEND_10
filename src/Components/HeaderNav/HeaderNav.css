@@ -1,23 +1,81 @@
+/* Contenedor principal del nav */
+ul.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Cambiado a 'space-around' para un mejor espaciado */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: var(--spacing-l); /* Añade un gap entre los elementos */
+}
+
+/* Enlace de navegación */
+header li {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Animación para el subrayado al pasar el mouse */
+header li > a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px; /* Ajusta la altura de la barra inferior */
+  bottom: 0; /* Coloca la barra al fondo del enlace */
+  left: 50%;
+  border-bottom: 3px solid var(--color-accent-1);
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  pointer-events: none;
+}
+
+header li > a:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+header li.current-location > a::before {
+  border-bottom: 3px solid var(--color-accent-1);
+  left: 0;
+  width: 100%;
+}
+
+/* Ajuste específico para "Añadir Juegos" y "Mi Perfil" */
+header li {
+  margin: 0 10px; /* Añade un margen entre los elementos */
+}
+
+/* Estilo del contenedor del menú (Login/Registrarse) */
 #menu-login {
-  max-height: 0; 
+  max-height: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 30px;
   background-color: var(--color-light-2);
-  padding: 0; 
-  gap: var(--spacing-xs); 
+  padding: 0;
+  gap: var(--spacing-xs);
   border-radius: var(--border-radius-xs);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
+/* Cuando está abierto, mostrar el contenido */
 #log-link.open #menu-login {
-  max-height: 100px; 
-  padding: var(--spacing-s); 
+  max-height: 100px;
+  padding: var(--spacing-s);
 }
 
+/* Estilo de log-link */
+#log-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Enlaces dentro del menú (Login/Registrarse) */
 #menu-login a {
   background-color: var(--color-accent-1);
   color: var(--color-light-1);
@@ -33,34 +91,4 @@
   background-color: var(--color-accent-2);
   color: var(--color-light-2);
   transform: scale(1.05);
-}
-
-header li {
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-  position: relative;
-}
-
-header li > a::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: 50%;
-  border-bottom: 5px solid var(--color-accent-1);
-  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  pointer-events: none;
-}
-
-header li > a:hover::before {
-  width: 100%;
-  left: 0;
-}
-
-header li.current-location > a::before {
-  border-bottom: 5px solid var(--color-accent-1);
-  left: 0;
-  width: 100%;
 }

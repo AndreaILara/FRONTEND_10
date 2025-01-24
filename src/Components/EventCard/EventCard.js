@@ -27,6 +27,7 @@ export const EventCard = eventObject => {
   const buttonContainer = eventContainer.querySelector('.button-container');
 
   if (localStorage.getItem('user')) {
+    // Pasa el objeto del evento completo
     DeleteEventButton(buttonContainer, eventObject);
   }
   if (eventObject.isUpcoming) {

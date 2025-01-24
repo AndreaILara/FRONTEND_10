@@ -5,6 +5,7 @@
   overflow: hidden;
   outline: 2px solid var(--color-dark-2);
   position: relative;
+  cursor: pointer;
   transition: border-color 0.3s ease;
 }
 
@@ -14,6 +15,7 @@
   top: 0;
   left: 0;
 }
+
 .profile-icon span {
   z-index: 5;
   height: 50px;
@@ -24,16 +26,24 @@
   border-radius: 50%;
   opacity: 0;
   transition: all 0.4s ease;
-  outline: 2px solid var(--color-dark-2);
 }
+
 .profile-icon span:hover {
   opacity: 1;
 }
+
 .logout-icon img {
   width: 25px;
   height: 25px;
   z-index: 5;
 }
+
+.profile-icon img:not(.logout-icon img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @keyframes appear {
   0% {
     opacity: 0;

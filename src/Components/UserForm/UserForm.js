@@ -1,4 +1,5 @@
 import './UserForm.css';
+import '../../styles/FormStyles.css';
 
 export const UserForm = (parentElement, formName, fields) => {
   const form = document.createElement('form');

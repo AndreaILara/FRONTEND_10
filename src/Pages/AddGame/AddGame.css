@@ -1,0 +1,74 @@
+.add-game-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--color-light-1);
+  border-radius: var(--border-radius-l);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+.add-game-section h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--color-dark-2);
+}
+
+.add-game-section form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.add-game-section label {
+  font-weight: 600;
+  color: var(--color-dark-2);
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: inline-block;
+  background-color: transparent; /* Remueve fondo negro */
+}
+
+.add-game-section input[type="text"],
+.add-game-section input[type="number"],
+.add-game-section input[type="file"],
+.add-game-section select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-dark-2);
+  border-radius: var(--border-radius-s);
+  background-color: var(--color-light-2);
+  font-size: 1rem;
+  color: var(--color-dark-1);
+  box-shadow: none;
+}
+
+.add-game-section input:focus,
+.add-game-section select:focus {
+  outline: 2px solid var(--color-accent-1);
+  box-shadow: 0 0 5px var(--color-accent-1);
+}
+
+
+.add-game-section button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-accent-1);
+  border: none;
+  border-radius: var(--border-radius-s);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-game-section button:hover {
+  background-color: var(--color-accent-2);
+  transform: translateY(-2px);
+}
+
+.add-game-section button:active {
+  background-color: var(--color-hover);
+  transform: translateY(1px);
+}

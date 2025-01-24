@@ -42,12 +42,12 @@ const registerSubmit = async e => {
     const data = await response.json();
 
     if (response.status !== 201) {
-      showToast(data.error || 'Error al registrar usuario', 'red');
+      showToast(data.message || 'Error al registrar usuario', 'red'); // Cambiar 'data.error' por 'data.message'
     } else {
       showToast('Registro exitoso. Iniciando sesión...', 'linear-gradient(to right, #00b09b, #96c93d)');
-
       loginRequest(username, password);
     }
+
   } catch (error) {
     console.error(error);
     showToast('Error en la conexión con el servidor', 'red');
