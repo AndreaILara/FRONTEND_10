@@ -2,56 +2,60 @@
 ul.flex-container {
   display: flex;
   align-items: center;
-  justify-content: space-around; 
+  justify-content: space-between; /* Cambiado para que los elementos se distribuyan mejor */
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
   list-style: none;
-  padding: 0;
+  padding: 10px 20px; /* Ajustado para mejorar el espacio */
   margin: 0;
-  gap: var(--spacing-l); 
+  gap: var(--spacing-m);
+  border-bottom: 2px solid var(--color-accent-1); /* Línea decorativa */
 }
 
+/* Estilo para los items del nav */
 header li {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   position: relative;
+  margin: 0 10px;
 }
 
+/* Efecto hover y actual para enlaces */
 header li > a::before {
   content: '';
   position: absolute;
   width: 0;
   height: 3px; 
-  bottom: 0;
+  bottom: -3px;
   left: 50%;
   border-bottom: 3px solid var(--color-accent-1);
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   pointer-events: none;
 }
 
-header li > a:hover::before {
-  width: 100%;
-  left: 0;
-}
-
+header li > a:hover::before,
 header li.current-location > a::before {
-  border-bottom: 3px solid var(--color-accent-1);
-  left: 0;
   width: 100%;
+  left: 0;
 }
 
-
-header li {
-  margin: 0 10px; 
+/* Icono de usuario en la esquina derecha */
+#log-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-
+/* Menú desplegable de login */
 #menu-login {
   max-height: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 30px;
+  top: 40px; /* Separación debajo del icono */
+  right: 0;
   background-color: var(--color-light-2);
   padding: 0;
   gap: var(--spacing-xs);
@@ -60,19 +64,10 @@ header li {
   transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
-
 #log-link.open #menu-login {
-  max-height: 100px;
+  max-height: 150px; /* Altura suficiente para el contenido */
   padding: var(--spacing-s);
 }
-
-
-#log-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 
 #menu-login a {
   background-color: var(--color-accent-1);
@@ -87,6 +82,39 @@ header li {
 
 #menu-login a:hover {
   background-color: var(--color-accent-2);
-  color: var(--color-light-2);
+  color: var(--color-dark-2);
   transform: scale(1.05);
+}
+
+/* Media Query para dispositivos pequeños */
+@media (max-width: 768px) {
+  ul.flex-container {
+    flex-direction: column; /* Cambia los elementos a una columna */
+    align-items: center; /* Centra los elementos */
+    gap: var(--spacing-m);
+  }
+
+  header li {
+    font-size: 16px; /* Reduce el tamaño de fuente */
+    margin: var(--spacing-s) 0; /* Ajusta el espacio vertical */
+  }
+
+  #menu-login {
+    top: 50px; /* Ajusta el espacio en dispositivos pequeños */
+  }
+}
+
+/* Media Query para dispositivos muy pequeños */
+@media (max-width: 480px) {
+  ul.flex-container {
+    padding: 10px; /* Reduce el espacio interno */
+  }
+
+  header li {
+    font-size: 14px; /* Reduce aún más el tamaño de fuente */
+  }
+
+  #menu-login {
+    top: 60px; /* Ajusta aún más el menú */
+  }
 }
